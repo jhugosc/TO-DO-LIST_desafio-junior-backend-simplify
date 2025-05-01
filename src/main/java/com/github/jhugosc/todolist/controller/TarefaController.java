@@ -17,7 +17,8 @@ import com.github.jhugosc.todolist.service.TarefaService;
 
 @RestController
 @RequestMapping("/tarefas")
-public class TarefaContoller {
+public class TarefaController {
+
     
     @Autowired
     private TarefaService tarefaService;

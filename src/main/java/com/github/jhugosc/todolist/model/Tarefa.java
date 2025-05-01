@@ -2,21 +2,35 @@ package com.github.jhugosc.todolist.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Tarefa {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
     private String nome;
+    
+    @Column(nullable = false)
     private String descricao;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
+
+    @Enumerated(EnumType.STRING)
     private Prioridade prioridade;
+
+    public Tarefa() {
+
+    }
+    
 
     public Tarefa(Long id, String nome, String descricao, Status status, Prioridade prioridade) {
         this.id = id;
